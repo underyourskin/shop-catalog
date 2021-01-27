@@ -35,7 +35,7 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
 
 }, E_ALL);
 
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: http://localhost:8080');
 header('Access-Control-Allow-Headers:X-Request-With, Content-Type');
 header('Access-Control-Allow-Credentials: true'); // for cookies
 

@@ -8,8 +8,8 @@ namespace Config;
 
 class Database
 {
-    const HOST      = 'localhost';
-    const NAME      = 'market';
-    const USERNAME  = 'admin';
-    const PASSWORD  = 'mysql';
+    const HOST      = '127.0.0.1';
+    const NAME      = 'shop-catalog';
+    const USERNAME  = 'root';
+    const PASSWORD  = '1234';
 }

@@ -44,7 +44,7 @@ class Cart
     public function __destruct()
     {
         // this is works. 
-        setcookie('cart', json_encode($this->cart));
+       // setcookie('cart', json_encode($this->cart));
     }
 
     /**
@@ -95,6 +95,8 @@ class Cart
                 $this->cart[] = $product;
             }
 
+            setcookie('cart', json_encode($this->cart));
+
             return $product;
         }
 
@@ -131,6 +133,8 @@ class Cart
             // Rebase array keys after unsetting elements, cart send in JSON format.
             $this->cart = array_values($this->cart);
 
+            setcookie('cart', json_encode($this->cart));
+            
             return $product;
         }
 
