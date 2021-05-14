@@ -9,5 +9,6 @@ export default class Remove extends $core.commands.Command {
 
 	apply() {
 		// Nothing todo.
+		debugger;
 	}
 }

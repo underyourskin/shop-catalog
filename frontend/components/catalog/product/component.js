@@ -1,15 +1,16 @@
 /**
- * @file: components/catalog/product.js
+ * @file: components/catalog/product/component.js
  * @author: Leonid Vinikov <czf.leo123@gmail.com>
  * @description: Manages one product unit.
  */
-import { Component } from 'CORE';
 import './product.css';
+import Controllers from "CORE/controllers";
+import Controller from "COMPONENTS/catalog/product/controller";
 
 /**
  * @memberOf components.catalog
  */
-export class Product extends Component {
+export class Component extends $core.Component {
 	/**
 	 * Item id.
 	 *
@@ -41,11 +42,15 @@ export class Product extends Component {
 	}
 
 	static getNamespace() {
-		return 'Components/Catalog'
+		return 'Components/Catalog/Product'
 	}
 
 	static getName() {
-		return 'Components/Catalog/Product';
+		return 'Components/Catalog/Product/Component';
+	}
+
+	static getControllerName() {
+		return 'Components/Catalog/Product/Controller'
 	}
 
 	initialize( options ) {
@@ -63,7 +68,7 @@ export class Product extends Component {
 		// If parent logger 'Components/Catalog' passed, clone and extend its name.
 		if ( this.logger ) {
 			this.logger = this.logger.clone();
-			this.logger.name = Product.getName() + '/' + id;
+			this.logger.name = Component.getName() + '/' + id;
 
 			this.logger.startWith( { id, name, price } );
 		}
@@ -94,13 +99,19 @@ export class Product extends Component {
 					<div class="footer">
 						<h5>Price: <span class="price">${price}$</span></h5>
 						<div class="row">
-							<button onclick="this.onProductAdd()" class="bg-primary">Add To Cart</button>
+							<button onclick="$core.commands.run( 'Components/Catalog/Product/Commands/Add', { component: this } )" class="bg-primary">Add To Cart</button>
 							<input onchange="this.onProductChange()" class="amount" type="number" name="amount"	value="1" min="1">
 						</div>
 					</div>
 				</div>
 	    `);
 	}
+
+	getController() {
+		return Controllers.get( Component.getControllerName() ) ||
+			Controllers.register( Component.getControllerName(), new Controller() );
+	}
+
 
 	onProductAdd( e ) {
 		if ( this.logger ) {
@@ -144,6 +155,10 @@ export class Product extends Component {
 		this.elements.amount.value = amount;
 	}
 
+	getAmount() {
+		return this.elements.amount.value;
+	}
+
 	/**
 	 * Function on() : Declare event callback
 	 *
@@ -169,4 +184,4 @@ export class Product extends Component {
 	}
 }
 
-export default Product;
+export default Component;

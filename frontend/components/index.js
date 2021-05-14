@@ -4,5 +4,5 @@
  * @description: Components Namespace O__o
  */
 
-export { Catalog } from './catalog.js';
+export { Catalog } from './catalog/component.js';
 export { Component } from './cart/component.js';

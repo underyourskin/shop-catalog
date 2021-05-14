@@ -5,11 +5,11 @@ import ForceMethod from '../errors/force-method';
  */
 export class Core {
 	static getNamespace() {
-        new ForceMethod();
+        throw new ForceMethod();
 	}
 
 	static getName() {
-        return ForceMethod();
+        throw new ForceMethod();
 	}
 
 	getNamespace() {

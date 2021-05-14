@@ -15,7 +15,7 @@ if  ( ! global.$core ) {
 		Component,
 
 		commands: new Commands(),
-		controllers: new Controllers(),
+		controllers: Controllers,
 	}
 }
 

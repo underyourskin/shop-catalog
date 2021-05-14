@@ -8,6 +8,7 @@ export default class Remove extends $core.commands.Command {
 	}
 
 	apply( args = this.args, options = this.options ) {
+		debugger;
 		this.logger.startWith( { component: args.component } );
 
 		const { component } = args,

@@ -5,7 +5,7 @@ import Remove from "./commands/remove";
  * TODO: This is will be rule example of coding standards in terms of methods order.
  * @memberOf components.cart
  */
-export class Controller extends $core.controllers.Controller {
+export class Controller extends ControllerBase {
 	static getNamespace() {
 		return 'Components/Cart/Item'
 	}

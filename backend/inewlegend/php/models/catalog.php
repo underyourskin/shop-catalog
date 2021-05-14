@@ -43,7 +43,7 @@ class Catalog {
 	}
 
 	/**
-	 * Function getById() : Get Product by Id
+	 * Function getById() : Get Component by Id
 	 *
 	 * @param int $id
 	 *
@@ -60,7 +60,7 @@ class Catalog {
 	}
 
 	/**
-	 * Function getByIds() : Get Product by Ids
+	 * Function getByIds() : Get Component by Ids
 	 *
 	 * @param array $ids
 	 *

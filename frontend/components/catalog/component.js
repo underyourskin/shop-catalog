@@ -1,5 +1,5 @@
 /**
- * @file: components/catalog.js
+ * @file: components/component.js
  * @author: Leonid Vinikov <czf.leo123@gmail.com>
  * @description: Manages catalog
  */
@@ -7,9 +7,9 @@ import * as services from 'SERVICES';
 import { Logger } from 'MODULES';
 import * as core  from 'CORE';
 
-import Pagination from './catalog/pagination';
-import Product from './catalog/product';
-import Spinner from './catalog/spinner';
+import Pagination from './pagination/component';
+import Product from './product/component';
+import Spinner from './spinner/spinner';
 
 /**
  * @memberOf components
@@ -28,7 +28,7 @@ export class Catalog extends core.Component {
 	/**
 	 * Loaded products to be rendered.
 	 *
-	 * @type {Array.<components.catalog.Product>}
+	 * @type {Array.<components.catalog.Component>}
 	 */
 	products = [];
 
@@ -46,11 +46,11 @@ export class Catalog extends core.Component {
 	}
 
 	static getNamespace() {
-		return 'Components'
+		return 'Components/Catalog'
 	}
 
 	static getName() {
-		return 'Components/Catalog';
+		return 'Components/Catalog/Component';
 	}
 
 	initialize( options ) {
@@ -123,7 +123,7 @@ export class Catalog extends core.Component {
 	/**
 	 * Function onProductAdd() : Called on "Add to cart button".
 	 *
-	 * @param {Product} product
+	 * @param {Component} product
 	 */
 	onProductAdd( product ) {
 		this.logger.startWith( { product } );
@@ -133,11 +133,11 @@ export class Catalog extends core.Component {
 	}
 
 	/**
-	 * Function onProductAmountChange() : Called on "Product Amount Change".
+	 * Function onProductAmountChange() : Called on "Component Amount Change".
 	 *
 	 * Function override amount ( Used as filter ).
 	 *
-	 * @param {components.catalog.Product} product
+	 * @param {components.catalog.Component} product
 	 * @param {number} amount
 	 */
 	onProductAmountChange( product, amount ) {
@@ -166,9 +166,9 @@ export class Catalog extends core.Component {
 	 *
 	 * Function Create product component and push it `this.products`.
 	 *
-	 * @param {components.catalog.Product} product
+	 * @param {components.catalog.Component} product
 	 *
-	 * @returns {components.catalog.Product}
+	 * @returns {components.catalog.Component}
 	 */
 	addProduct( product ) {
 		const productComponent = new Product( this.elements.row, {

@@ -1,5 +1,5 @@
 /**
- * @file: api/catalog.js
+ * @file: api/component.js
  * @author: Leonid Vinikov <czf.leo123@gmail.com>
  */
 import * as services from 'SERVICES';
