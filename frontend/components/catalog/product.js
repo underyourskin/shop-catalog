@@ -3,7 +3,7 @@
  * @author: Leonid Vinikov <czf.leo123@gmail.com>
  * @description: Manages one product unit.
  */
-import { Component } from 'MODULES';
+import { Component } from 'CORE';
 import './product.css';
 
 /**

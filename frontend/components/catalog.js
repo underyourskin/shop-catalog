@@ -4,7 +4,8 @@
  * @description: Manages catalog
  */
 import * as services from 'SERVICES';
-import { Component, Logger } from 'MODULES';
+import { Logger } from 'MODULES';
+import * as core  from 'CORE';
 
 import Pagination from './catalog/pagination';
 import Product from './catalog/product';
@@ -13,7 +14,7 @@ import Spinner from './catalog/spinner';
 /**
  * @memberOf components
  */
-export class Catalog extends Component {
+export class Catalog extends core.Component {
 	static amountMaxValue = 999;
 	static amountMinValue = 1;
 

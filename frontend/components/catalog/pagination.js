@@ -6,7 +6,7 @@
 
 import * as core from 'CORE';
 import * as services from 'SERVICES';
-import { Component, Logger, } from 'MODULES';
+import { Logger, } from 'MODULES';
 
 import './pagination.css';
 
@@ -22,7 +22,7 @@ import './pagination.css';
 /**
  * @memberOf components
  */
-export class Pagination extends Component {
+export class Pagination extends core.Component {
 	constructor( parent, options ) {
 		super( parent, options );
 

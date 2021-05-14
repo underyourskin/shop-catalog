@@ -3,7 +3,7 @@
  * @author: Leonid Vinikov <czf.leo123@gmail.com>
  */
 
-import { Component } from 'MODULES';
+import { Component } from 'CORE';
 import './spinner.css';
 
 /**

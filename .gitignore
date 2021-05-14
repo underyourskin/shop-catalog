@@ -5,3 +5,5 @@ node_modules
 app.bundle.js
 
 frontend/dist/*.js
+
+backend/inewlegend/php/config/database.php

@@ -5,13 +5,15 @@
  * TODO:
  */
 import * as core from 'CORE';
+import Core from "CORE/base/core";
 
 /**
- * @memberOf modules
- * TODO: Move to core.
+ * @memberOf core
  */
-export class Component {
+export class Component extends Core {
 	constructor( parent, options = {} ) {
+		super();
+
 		this.parent = parent;
 		this.options = options;
 
@@ -19,11 +21,11 @@ export class Component {
 	}
 
 	static getNamespace() {
-		return 'Modules'
+		return 'Core'
 	}
 
 	static getName() {
-		return 'Modules/Component';
+		return 'Core/Component';
 	}
 
 	initialize( options ) {
@@ -48,11 +50,13 @@ export class Component {
 		 */
 		this.view = view;
 
+		this.controller = this.getController();
+
 		// Alias.
 		this.context = view.element.context;
 
 		this.view.element.attachListeners = () => {
-			return core.Element.prototype.attachListeners.call( this.view.element, this.getController() );
+			return core.Element.prototype.attachListeners.call( this.view.element, /* this.getController() */ this );
 		}
 
 		this.attachListeners();
@@ -63,7 +67,7 @@ export class Component {
 		// Attach listeners of view.element to the controller.
 		this.view.element.afterRender = () => {
 			core.Element.prototype.afterRender.call( this.view.element, false );
-			core.Element.prototype.attachListenersFromHTMLElement.call( this.view.element, this.view.element.element, this.getController() );
+			core.Element.prototype.attachListenersFromHTMLElement.call( this.view.element, this.view.element.element, /* this.getController() */ this );
 
 			this.view.element.attachListeners();
 		};
@@ -98,8 +102,13 @@ export class Component {
 		parentElement.removeChild( element.element );
 	}
 
-	getController() {
-		return this.options.controller || this;
+	/**
+	 * @returns {core.controllers.Controller|modules.Component}
+	 */
+	getController( controllerName = '' ) {
+		return this.options.controller ||
+			( controllerName.length ? $core.Controllers.get( controllerName ) : false ) ||
+			this;
 	}
 }
 

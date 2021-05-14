@@ -12,6 +12,7 @@ import * as services from 'SERVICES';
 import * as components from 'COMPONENTS';
 import * as pages from 'PAGES';
 
+
 class App {
 	/**
 	 * Function constructor() : Create App
@@ -94,7 +95,7 @@ class App {
 	}
 
 	/**
-	 * Function onBeforeRender() :.
+	 * Function onPageContainerBeforeRender()
 	 *
 	 * @param {modules.Page} pageModule
 	 */
@@ -192,7 +193,7 @@ class App {
 		if ( ! this.catalogRenderOnce ) {
 			this.catalogRenderOnce = true;
 
-			this.cart = new components.Cart( this.elements.sidebar.self, this.apis );
+			this.cart = new components.Component( this.elements.sidebar.self, this.apis );
 
 			this.cart.on( 'ui:checkout', this.onCartCheckout.bind( this ) );
 			this.cart.on( 'cart:request', this.onCartRequest.bind( this ) );
@@ -211,7 +212,7 @@ class App {
 		this.logger.startWith( { product } );
 
 		this.cart.itemAdd( product, () => {
-			if ( components.Cart.openCartOnUpdate ) {
+			if ( components.Component.openCartOnUpdate ) {
 				this.sidebarToggle( true );
 			}
 		} );
