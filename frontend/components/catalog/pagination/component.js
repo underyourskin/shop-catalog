@@ -1,5 +1,5 @@
 /**
- * @file: components/pagination.js
+ * @file: components/catalog/pagination/component.js
  * @author: Leonid Vinikov <czf.leo123@gmail.com>
  * @description: component for pagination.
  */
@@ -20,11 +20,11 @@ import './pagination.css';
 /**
  * @memberOf components
  */
-export class Pagination extends $core.Component {
+export class Component extends $core.Component {
 	constructor( parent, options ) {
 		super( parent, options );
 
-		this.logger = new Logger( Pagination.getName(), true );
+		this.logger = new Logger( Component.getName(), true );
 		this.logger.setOutputHandler( services.Terminal.onOutput );
 
 		this.logger.startWith( { options } );
@@ -37,11 +37,11 @@ export class Pagination extends $core.Component {
     }
 
 	static getNamespace() {
-		return 'Components/Catalog'
+		return 'Components/Catalog/Pagination'
 	}
 
 	static getName() {
-		return 'Components/Catalog/Pagination';
+		return 'Components/Catalog/Pagination/Component';
 	}
 
 	template() {
@@ -147,4 +147,4 @@ export class Pagination extends $core.Component {
 	}
 }
 
-export default Pagination;
+export default Component;

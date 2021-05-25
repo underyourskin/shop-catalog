@@ -17,12 +17,12 @@ export default class CommandBase extends Core {
 		const { component } = args;
 
 		// TODO: Duplicate code replace with `component.logger.cloneWithName`.
-		if ( component.logger ) {
-			this.logger = component.logger.clone();
-			this.logger.name = this.getName();
+		// if ( component.logger ) {
+		// 	this.logger = component.logger.clone();
+		// 	this.logger.name = this.getName();
 
-			this.logger.startWith( { args, options } );
-		}
+		// 	this.logger.startWith( { args, options } );
+		// }
 
 		this.initialize( args, options );
 	}
